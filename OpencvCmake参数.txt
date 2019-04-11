@@ -1,0 +1,16 @@
+初学时搭建Clion中opencv的环境，实现显示一张指定图片
+通过路径添加之后只需适当编写CmakeLists.txt中一些东西
+即可编写代码运行。。。
+
+CmakeList.txt编写如下
+cmake_minimum_required(VERSION 3.13.4)//该行为Cmake的版本号，可在设置中查找到
+project(untitled4)//项目名称
+
+set(CMAKE_CXX_STANDARD 14)//建立C++的标准支持
+
+add_executable(untitled4 main.cpp)//生成项目代码编写并发生联系
+set(OpenCV_DIR "D:\\Opencv\\opencv\\build\\x64\\vc15\\lib")
+find_package(OpenCV REQUIRED)//寻找包含库以及头文件的包的名称及版本
+include_directories(${OpenCV_INCLUDE_DIRS})//链接所需要的库
+target_link_libraries(untitled4 ${OpenCV_LIBS})//该项目所需的库
+
